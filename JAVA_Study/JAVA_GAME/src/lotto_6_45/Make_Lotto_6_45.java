@@ -5,11 +5,11 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Lotto_6_45 {
+public class Make_Lotto_6_45 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int ticketCount; // 로또 구매 장수
-
+        	
         System.out.print("구매할 로또 장수를 입력해 주세요: ");
 
         // 사용자 입력 값이 양의 정수인지 확인
