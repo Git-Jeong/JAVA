@@ -35,16 +35,16 @@ public class Main {
 
         int[] game_answer = new int[GAME_SIZE]; // 배열 선언 (크기 3)
         int[] user_input = new int[GAME_SIZE];
-        int[] strike_ball = new int[2]; //strike, ball 의 수
-        boolean game_input = true;
+        int[] strike_ball = new int[2]; //strike, ball 의 수를 넣어둘 배열
+        boolean game_input = true;		
 
-        Game_answer game_answer_create = new Game_answer(); // Num_goal 객체 생성
-        Strike_Ball_Check s_b_check = new Strike_Ball_Check();
+        Game_Answer game_answer_create = new Game_Answer(); // Num_goal 객체 생성
+        Strike_Ball_Check s_b_check = new Strike_Ball_Check();	
         User_Input_Num userInputNum = new User_Input_Num();
         game_answer = game_answer_create.RandomNumbers(game_answer); // 배열에 숫자 채우기
 
         System.out.println("게임을 시작합니다!! " + GAME_SIZE + "자리의 정수를 적으세요");
-        boolean test_mode = false;
+        boolean test_mode = true;
         if(test_mode){
             System.out.println("----게임 테스트 모드----");
             System.out.print("정답은 : ");

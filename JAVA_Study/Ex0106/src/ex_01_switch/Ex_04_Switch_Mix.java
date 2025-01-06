@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Ex_04_Switch_Mix {
 	public static void main(String[] args) {
+		//사용자가 입력한 액수에 맞는 잔돈을 반환해 주는 프로그램
+		//배열을 사용하지 않은 버전
 		Scanner scan = new Scanner(System.in);
 		int input_price;
 		int input_snack_num;
@@ -38,10 +40,27 @@ public class Ex_04_Switch_Mix {
 		default -> System.out.println("입력 에러입니다. "); 
 		}
 		if(output_coin < 0) {
-			System.out.printf("돈이 부족합니다. 잔돈 : %d원", input_price);
+			output_coin = input_price;
+			System.out.print("돈이 부족합니다. ");
 		}
 		else {
-			System.out.printf("구매에 성공했습니다. 잔돈 : %d원", output_coin);
+			System.out.print("구매에 성공했습니다. ");  
 		}
+
+		System.out.printf("잔돈 : %d원\n", output_coin );
+		int output_1000 = output_coin / 1000;
+		int output_500 = (output_coin % 1000) / 500;
+		int output_100 = (output_coin % 500) / 100;
+		if(output_1000 != 0) {
+			System.out.printf("천원 : %d장 \t", output_1000);
+		}
+		if(output_500 != 0) {
+			System.out.printf("오백원 : %d개 \t", output_500);
+		}
+		if(output_100 != 0) {
+			System.out.printf("백원 : %d개 \t", output_100);
+		}
+		
+		scan.close();
 	}
 }
