@@ -1,4 +1,4 @@
-package Bulls_and_Cows;
+package bulls_and_Cows;
 
 import java.util.Scanner;
 

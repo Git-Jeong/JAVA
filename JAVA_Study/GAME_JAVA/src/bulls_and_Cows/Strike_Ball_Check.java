@@ -1,4 +1,4 @@
-package Bulls_and_Cows;
+package bulls_and_Cows;
 
 public class Strike_Ball_Check {
     public int[] Check_Strike_ball(int[] output, int[] user_input, int[] answer) {

@@ -1,4 +1,4 @@
-package Bulls_and_Cows;
+package bulls_and_Cows;
 
 public class Game_answer {
     // 배열의 각 요소에 중복 없는 랜덤 숫자를 추가하고 반환
