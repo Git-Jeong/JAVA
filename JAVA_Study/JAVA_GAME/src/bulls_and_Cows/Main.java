@@ -44,7 +44,7 @@ public class Main {
         game_answer = game_answer_create.RandomNumbers(game_answer); // 배열에 숫자 채우기
 
         System.out.println("게임을 시작합니다!! " + GAME_SIZE + "자리의 정수를 적으세요");
-        boolean test_mode = true;
+        boolean test_mode = false;
         if(test_mode){
             System.out.println("----게임 테스트 모드----");
             System.out.print("정답은 : ");
