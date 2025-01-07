@@ -3,9 +3,10 @@ package lotto_6_45;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.io.FileWriter;
-import java.io.IOException;
-
-public class Make_Lotto_6_45 {
+import java.io.IOException;   
+ 
+public class Make_Lotto_6_45 { 
+	
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int ticketCount; // 로또 구매 장수
@@ -16,7 +17,7 @@ public class Make_Lotto_6_45 {
         while (true) {
             try {
                 ticketCount = Integer.parseInt(scanner.nextLine());
-                if (ticketCount > 0) {
+                if ( (ticketCount > 0) && (ticketCount <= 1000000) ) {
                     break;
                 } else {
                     System.out.print("유효한 정수를 입력하세요 : ");
@@ -37,10 +38,12 @@ public class Make_Lotto_6_45 {
 
         try (FileWriter writer = new FileWriter("lotto_numbers.txt")) {
             for (int i = 0; i < lottoNumbers.length; i++) {
-                if ((i + 1) % 5 == 1) {
-                    System.out.println(); 
+                /*
+            	if ((i + 1) % 5 == 1) {
+                    System.out.print11ln(); 
                 }
                 System.out.printf("[%3d] : ", i + 1);
+                */
                 writer.write(String.format("[%3d] : ", i + 1));
                 printLottoNumbers(lottoNumbers[i], writer);
             }
@@ -49,7 +52,8 @@ public class Make_Lotto_6_45 {
             System.err.println("파일 쓰기 중 오류가 발생했습니다: " + e.getMessage());
         }
 
-        System.out.println("1등 당첨을 기원합니다.");
+        System.out.println("번호 생성이 완료되었습니다. ");  
+        
         scanner.close();
     }
 
@@ -80,10 +84,20 @@ public class Make_Lotto_6_45 {
     // 로또 번호 출력 및 파일 쓰기 함수
     private static void printLottoNumbers(int[] lottoNumbers, FileWriter writer) throws IOException {
         for (int i=0; i < lottoNumbers.length; i++) {
-            System.out.printf("%2d ", lottoNumbers[i]);
+            //System.out.printf("%2d ", lottoNumbers[i]);
             writer.write(String.format("%2d ", lottoNumbers[i]));
+            
+ 
+        } 
+        
+    	// 테스트용 1등 당첨자 번호 
+        // 1153회차
+    	int answer[] = {1, 9, 10, 13, 35, 44};
+        if (Arrays.equals(lottoNumbers, answer)) {
+            System.out.println("1등 당첨번호가 있습니다.");
         }
-        System.out.println();
+        
+        //System.out.println();
         writer.write("\n");
     }
 }

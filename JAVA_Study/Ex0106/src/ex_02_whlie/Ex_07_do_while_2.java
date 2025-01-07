@@ -43,7 +43,13 @@ public class Ex_07_do_while_2 {
 				System.out.println("Fail...");
 				System.out.print("계속 하시겠습니까? (네 'Y', 아니요 'N') : ");
 				while(true) { 
-	                char input_newgame = scan.next().charAt(0);
+	                char input_newgame = scan.next().charAt(0); 
+	                /*
+	                 * 또는 
+	                 * String 변수명 scan.next();로 입력을 받은 다음 
+	                 * 변수명.equals()로 기호를 확인하거나	(ex : 변수명.equals("Y") )
+	                 * 변수명.equalsIgnoreCase() 를 통해 대소문자 구분없이 비교가 가능 (ex : 변수명.equalsIgnoreCase("Y") )
+	                 * */
 					if( (input_newgame == 'Y') || (input_newgame == 'y')) {
 						success_count = 0;
 						break;
