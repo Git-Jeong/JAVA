@@ -19,7 +19,7 @@ public class Make_Lotto_6_45 {
 			while (true) {
 				try {
 					ticketCount = Integer.parseInt(scanner.nextLine());
-					if ((ticketCount > 0) && (ticketCount <= 2000000)) {
+					if ((ticketCount > 0) && (ticketCount <= 9000000)) {
 						break;
 					} else {
 						System.out.print("유효한 정수를 입력하세요 : ");
