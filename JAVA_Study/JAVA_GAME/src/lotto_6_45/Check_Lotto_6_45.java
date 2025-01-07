@@ -28,6 +28,11 @@ public class Check_Lotto_6_45 {
             // 파일에서 로또 번호 읽기 및 2차원 배열에 저장
             int[][] lottoNumbers = openFileTokenize(loto_num);
             int digits = getDigits(lottoNumbers.length);
+            int first = 0;	//1등 카운트
+            int second = 0;	//2등 카운트
+            int third = 0; //3등 카운트
+            int fourth = 0; //4등 카운트
+            
             
             System.out.println();
             int[] temp_answer = { 1, 9, 10, 13, 35, 44 };
@@ -45,14 +50,26 @@ public class Check_Lotto_6_45 {
                 // 결과 출력
                 if (matchCount == 6) {
                 	System.out.printf("[%"+digits+"d] : 1등 당첨 !!!! \n", (i + 1)); 
+                	first++;
                 } 
                 else if (matchCount == 5) {
                 	System.out.printf("[%"+digits+"d] : 2등 당첨 ! \n", (i + 1)); 
+                	second++;
                 }  
+                else if (matchCount == 4) {
+                	third++;
+                }
+                else if (matchCount == 3) {
+                	fourth++;
+                }
             }
             
 
             // 라인 수 출력
+            System.out.printf("1등 : %6d장\n", first);
+            System.out.printf("2등 : %6d장\n", second);
+            System.out.printf("3등 : %6d장\n", third);
+            System.out.printf("4등 : %6d장\n", fourth);
             System.out.println("프로그램 종료.");
         }
     }

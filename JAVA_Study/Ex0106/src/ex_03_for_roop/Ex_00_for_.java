@@ -2,6 +2,8 @@ package ex_03_for_roop;
 
 public class Ex_00_for_ {
     public static void main(String[] args) {
+    	//한 줄에 MAX_ONE_LINE행 만큼 나오는 구구단
+    	
         final int MAX_LINE = 9; // 구구단 최대 단
         final int MAX_ONE_LINE = 3; // 한 줄에 출력할 단 개수
 

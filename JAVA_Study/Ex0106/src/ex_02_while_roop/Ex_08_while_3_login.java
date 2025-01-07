@@ -1,4 +1,4 @@
-package ex_02_roop;
+package ex_02_while_roop;
 
 import java.util.*;
 
