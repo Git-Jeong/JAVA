@@ -6,6 +6,7 @@ public class Ex_05_do_while_5 {
 
 	public static void main(String[] args) {    
 		//사용자의 현재 몸무게와 목표 몸무게를 입력받아 주차별 감/가산을 해가는 프로그램
+		Scanner scan = new Scanner(System.in);
 		
 		int week = 1; //첫주차 몸무게 변수
 		int now_weight;	//현재 몸무게
@@ -27,7 +28,7 @@ public class Ex_05_do_while_5 {
 				total_minus_plus_weight -= minus_weight;
 				week++;
 			}while(total_minus_plus_weight > 0);
-			System.out.printf("%dkg의 목표 달성을 축하합니다!", target_weight);
+			System.out.printf("%dkg의 목표 달성을 축하합니다!\t", target_weight); 
 		} 
 		else if(total_minus_plus_weight < 0) {
 			//몸무게 감산
@@ -36,11 +37,12 @@ public class Ex_05_do_while_5 {
 		        total_minus_plus_weight += minus_weight;
 		        week++;
 		    } while(total_minus_plus_weight < 0); // 수정된 조건
-		    System.out.printf("%dkg의 목표 달성을 축하합니다!", target_weight);
+		    System.out.printf("%dkg의 목표 달성을 축하합니다!\t", target_weight); 
 		}  
 		else {
 			System.out.println("시스템 에러 발생");
 		}
+		scan.close();
 	}
 	
 	private static int input_now_weight() {
@@ -99,7 +101,7 @@ public class Ex_05_do_while_5 {
 			catch (NumberFormatException e) { 
 				System.out.println("재입력 : "); // 숫자가 아닌 입력 처리
 			}  
-		} while (true); // 여기 세미콜론 추가
+		} while (true); // 여기 세미콜론 추가 
 		return week_weight;
 	}
 }
