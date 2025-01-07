@@ -5,5 +5,4 @@
  * 
  */
 module GAME_JAVA {
-	
 }

@@ -6,6 +6,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/smhrd1/Documents/GitHub/JAVA/JAVA_Study/JAVA_GAME/src/lotto_6_45/jsoup-1.18.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

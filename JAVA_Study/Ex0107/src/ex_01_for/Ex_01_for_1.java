@@ -1,6 +1,6 @@
-package ex_02_whlie;
+package ex_01_for;
 
-public class Ex_00_for_0_multiplication_table {
+public class Ex_01_for_1 {
     public static void main(String[] args) {
         final int MAX_LINE = 9; // 구구단 최대 단
         final int MAX_ONE_LINE = 3; // 한 줄에 출력할 단 개수
@@ -16,4 +16,5 @@ public class Ex_00_for_0_multiplication_table {
             System.out.println(); // MAX_ONE_LINE단위로 줄바꿈  
         }
     }
-} 
+
+}
