@@ -1,4 +1,4 @@
-package ex_01_for;
+package ex_02_for;
 
 public class Ex_01_for_1 {
     public static void main(String[] args) {
