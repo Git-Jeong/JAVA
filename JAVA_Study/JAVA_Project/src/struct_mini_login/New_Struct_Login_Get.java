@@ -1,8 +1,8 @@
-package ex_02_while_roop;
+package struct_mini_login;
 
 import java.util.*;
 
-public class Ex_08_while_3_login { 
+public class New_Struct_Login_Get { 
 	/*
 	 * jwt, gui, bcrypt 없이 간단하게 터미널에서 해보는 로그인 코드
 	 * 

@@ -3,7 +3,7 @@ package ex_02_while_roop;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Ex_09_do_while_3 {
+public class Ex_08_do_while_3 {
 	public static void main(String[] args) {
 		Random rd = new Random();
 		Scanner scan = new Scanner(System.in);
