@@ -5,6 +5,7 @@ import java.util.*;
 public class Ex_08_while_3_login { 
 	/*
 	 * jwt, gui, bcrypt 없이 간단하게 터미널에서 해보는 로그인 코드
+	 * 
 	 * */ 
 	
 	private static List<UserList> users = new ArrayList<>(); // 사용자 목록 저장
