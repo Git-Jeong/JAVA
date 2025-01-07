@@ -1,4 +1,4 @@
-package ex_02_whlie;
+package ex_02_roop;
 import java.util.Scanner;
 public class Ex_04_while_4 {
 	public static void main(String[] args) { 

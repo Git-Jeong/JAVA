@@ -1,4 +1,4 @@
-package ex_02_whlie;
+package ex_02_roop;
 
 import java.util.Scanner;
 

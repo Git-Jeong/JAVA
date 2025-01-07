@@ -2,6 +2,9 @@ package lotto_6_45;
 
 import java.util.Arrays;
 import java.util.Scanner;
+
+import bulls_and_Cows.Strike_Ball_Check;
+
 import java.io.FileWriter;
 import java.io.IOException;   
  
@@ -9,7 +12,7 @@ public class Make_Lotto_6_45 {
 	
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int ticketCount; // 로또 구매 장수
+        int ticketCount; // 로또 구매 장수 
         	
         System.out.print("구매할 로또 장수를 입력해 주세요: ");
 
@@ -17,7 +20,7 @@ public class Make_Lotto_6_45 {
         while (true) {
             try {
                 ticketCount = Integer.parseInt(scanner.nextLine());
-                if ( (ticketCount > 0) && (ticketCount <= 1000000) ) {
+                if ( (ticketCount > 0) && (ticketCount <= 2000000) ) {
                     break;
                 } else {
                     System.out.print("유효한 정수를 입력하세요 : ");
@@ -53,6 +56,9 @@ public class Make_Lotto_6_45 {
         }
 
         System.out.println("번호 생성이 완료되었습니다. ");  
+
+        Check_Lotto_6_45 lotto_num_check = new Check_Lotto_6_45();	
+        lotto_num_check.num_check();			//로또 당첨내역 조회
         
         scanner.close();
     }
@@ -89,13 +95,7 @@ public class Make_Lotto_6_45 {
             
  
         } 
-        
-    	// 테스트용 1등 당첨자 번호 
-        // 1153회차
-    	int answer[] = {1, 9, 10, 13, 35, 44};
-        if (Arrays.equals(lottoNumbers, answer)) {
-            System.out.println("1등 당첨번호가 있습니다.");
-        }
+         
         
         //System.out.println();
         writer.write("\n");

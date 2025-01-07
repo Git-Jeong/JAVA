@@ -2,14 +2,16 @@ package lotto_6_45;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Check_Lotto_6_45 { 
-    public static void main(String[] args) throws IOException {
+    public static void num_check() {
         // 동적으로 파일 크기 맞추기 위해 파일 크기 체크
         byte[] loto_num;
         boolean readTheFile = false;
         try {
             // 사용자의 파일을 불러오기
+            System.out.printf("\n로또번호 불러오기 시작\n");
             FileInputStream input = new FileInputStream("lotto_numbers.txt");
             loto_num = input.readAllBytes(); // 파일의 모든 내용을 배열에 읽음
             readTheFile = true;
@@ -25,11 +27,33 @@ public class Check_Lotto_6_45 {
         if (readTheFile) {
             // 파일에서 로또 번호 읽기 및 2차원 배열에 저장
             int[][] lottoNumbers = openFileTokenize(loto_num);
+            int digits = getDigits(lottoNumbers.length);
             
+            System.out.println();
+            int[] temp_answer = { 1, 9, 10, 13, 35, 44 };
+            // 각 번호에 대해 일치하는 숫자의 개수를 세어 비교
+            for (int i = 0; i < lottoNumbers.length; i++) {
+                int matchCount = 0; // 일치하는 숫자 개수
+
+                // 각 요소 비교
+                for (int j = 0; j < 6; j++) {
+                    if (lottoNumbers[i][j] == temp_answer[j] ) {
+                        matchCount++;
+                    }
+                }
+
+                // 결과 출력
+                if (matchCount == 6) {
+                	System.out.printf("[%"+digits+"d] : 1등 당첨 !!!! \n", (i + 1)); 
+                } 
+                else if (matchCount == 5) {
+                	System.out.printf("[%"+digits+"d] : 2등 당첨 ! \n", (i + 1)); 
+                }  
+            }
+            
+
             // 라인 수 출력
-            System.out.println("총 " + lottoNumbers.length + "개의 로또 번호가 있었습니다.");
-            
- 
+            System.out.println("프로그램 종료.");
         }
     }
     
@@ -69,5 +93,15 @@ public class Check_Lotto_6_45 {
     
     private static int[] getCrawLottoAnswer(int[] answer) {
     	//여기에 웹페이지에서 크롤링 해오는 코드가 필요
+ 
+    }
+    
+    private static int getDigits(int lottolength) {
+        int digits = 0;
+        while (lottolength > 0) {
+            lottolength /= 10;
+            digits++;
+        }
+        return digits; 
     }
 }
