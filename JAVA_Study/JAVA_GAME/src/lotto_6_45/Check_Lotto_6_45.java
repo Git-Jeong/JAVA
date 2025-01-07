@@ -68,6 +68,6 @@ public class Check_Lotto_6_45 {
     }
     
     private static int[] getCrawLottoAnswer(int[] answer) {
-    	
+    	//여기에 웹페이지에서 크롤링 해오는 코드가 필요
     }
 }

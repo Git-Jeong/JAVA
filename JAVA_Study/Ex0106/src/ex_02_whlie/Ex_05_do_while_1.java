@@ -2,7 +2,7 @@ package ex_02_whlie;
 
 import java.util.Scanner; 
 
-public class Ex_05_do_while_5 {
+public class Ex_05_do_while_1 {
 
 	public static void main(String[] args) {    
 		//사용자의 현재 몸무게와 목표 몸무게를 입력받아 주차별 감/가산을 해가는 프로그램

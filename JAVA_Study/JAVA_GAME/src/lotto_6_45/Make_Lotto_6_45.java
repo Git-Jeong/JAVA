@@ -38,8 +38,7 @@ public class Make_Lotto_6_45 {
         try (FileWriter writer = new FileWriter("lotto_numbers.txt")) {
             for (int i = 0; i < lottoNumbers.length; i++) {
                 if ((i + 1) % 5 == 1) {
-                    System.out.println();
-                    writer.write("\n");
+                    System.out.println(); 
                 }
                 System.out.printf("[%3d] : ", i + 1);
                 writer.write(String.format("[%3d] : ", i + 1));
