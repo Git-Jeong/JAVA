@@ -3,7 +3,7 @@ package ex_01_array;
 import java.util.Random;
 import java.util.ArrayList;
 
-public class Ex_02_Array_2 {
+public class Ex_02_variable_array {
 	public static void main(String[] args) {
 		// 임의의 값(1~100)을 5개 불러오기 
 		// 홀수만 가변 배열에 저장
