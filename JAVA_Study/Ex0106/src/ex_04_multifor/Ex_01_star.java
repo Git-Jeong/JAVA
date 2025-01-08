@@ -12,18 +12,17 @@ public class Ex_01_star {
 					System.out.println();
 				}
 			}
-		}
+		}	
 		
 		System.out.println();
-		for(int i = MAX_LINES; i >= 1; i--) {
+		for(int i = MAX_LINES; i >= 1; i--)	 {
 			for(int j=1; j <= i; j++) {
 				System.out.print("*"); 
 				if(i == j) {
 					System.out.println();
 				}
 			}
-		}
-		
+		}  
 		
 	}
 	
