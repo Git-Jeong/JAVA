@@ -2,6 +2,7 @@ package ex_01_array;
 
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Ex_02_variable_array_1 {
 	public static void main(String[] args) {
@@ -28,6 +29,8 @@ public class Ex_02_variable_array_1 {
 		}
 		
 		System.out.println();
-		System.out.printf("총 %d개 입니다. ", oddNumbers.size());
+		System.out.printf("총 %d개 입니다. \n\n", oddNumbers.size());
+		
+		
 	}
 }
