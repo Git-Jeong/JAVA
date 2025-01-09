@@ -66,6 +66,7 @@ public class Check_Lotto_6_45 {
             
 
             // 라인 수 출력
+//            System.out.printf("구매장 : %")
             System.out.printf("1등 : %6d장\n", first);
             System.out.printf("2등 : %6d장\n", second);
             System.out.printf("3등 : %6d장\n", third);

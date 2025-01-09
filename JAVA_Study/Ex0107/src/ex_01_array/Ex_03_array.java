@@ -29,5 +29,6 @@ public class Ex_03_array {
 		//오름차순 정렬 후
 		System.out.printf("정렬 후 : %s \n", Arrays.toString(rd_array));
 		System.out.printf("가장 큰 수는 : %d\n", rd_array[MAX_ARRAY_INDEX - 1]);
+		System.out.printf("가장 작은 수는 : %d\n", rd_array[0]); 
 	}
 }

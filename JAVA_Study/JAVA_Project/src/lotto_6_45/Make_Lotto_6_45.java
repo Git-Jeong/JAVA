@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class Make_Lotto_6_45 {
 
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) { 
+		Scanner scanner = new Scanner(System.in); 
 		while (true) {
 			int ticketCount; // 로또 구매 장수
 			
@@ -27,7 +27,7 @@ public class Make_Lotto_6_45 {
 				} catch (NumberFormatException e) {
 					System.out.print("숫자만 입력해 주세요 : ");
 				}
-			}
+			} 
 
 			// 로또 번호 배열 생성
 			int[][] lottoNumbers = new int[ticketCount][6];
@@ -56,8 +56,9 @@ public class Make_Lotto_6_45 {
 
 			Check_Lotto_6_45 lotto_num_check = new Check_Lotto_6_45();
 			lotto_num_check.num_check(); // 로또 당첨내역 조회
-			System.out.printf("\n\n");
-		}
+			System.out.printf("\n\n"); 
+		} 
+		 
 	}
 
 	// 로또 번호 생성 함수
