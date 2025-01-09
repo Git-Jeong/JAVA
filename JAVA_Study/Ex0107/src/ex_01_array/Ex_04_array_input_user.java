@@ -3,7 +3,7 @@ package ex_01_array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Ev_04_array_input_user {
+public class Ex_04_array_input_user {
 	public static void main(String[] args) {
 		//사용자가 입력한 점수의 총합과 평균을 구하기
 		Scanner scan = new Scanner(System.in);
