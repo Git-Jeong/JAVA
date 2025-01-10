@@ -7,6 +7,8 @@ public class Ex_01_Student_Info {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 
+		// import 해서 hashSet??을 쓰면 좀 더 빠를 것 같긴 한데 이거 없이 해보기
+
 		System.out.print("학생 수 : ");
 		int size = input_integer(scan);
 		Student[] students = new Student[size];
@@ -18,23 +20,33 @@ public class Ex_01_Student_Info {
 			System.out.printf("휴대전화 >> ");
 			String mobile_phone = input_str(scan);
 
-			System.out.printf("학번 >> ");
-			int student_number = input_integer(scan);
-
 			System.out.printf("주소 >> ");
 			String address = input_str(scan);
 
 			System.out.println();
-			students[i] = new Student(name, mobile_phone, student_number, address, students, i);
+			students[i] = new Student(name, mobile_phone, address, students, i);
 		}
 
+		/**
+		 * for (int i = 0; i < size; i++) { System.out.println("이름 : " +
+		 * students[i].name); System.out.println("전화번호 : " + students[i].mobile_phone);
+		 * System.out.println("학번 : " + students[i].student_number);
+		 * System.out.println("주소 : " + students[i].address); System.out.println("ID : "
+		 * + students[i].id); System.out.println(); System.out.println(); }
+		 */
+
+		// 학번을 가지고 데이터를 추적하는 방법은?
+		int search_number = 20254002;
+		int find_index = 0;
 		for (int i = 0; i < size; i++) {
-			System.out.println("이름 : " + students[i].name);
-			System.out.println("전화번호 : " + students[i].mobile_phone);
-			System.out.println("학번 : " + students[i].student_number);
-			System.out.println("주소 : " + students[i].address);
-			System.out.println("ID : " + students[i].id);
-			System.out.println();
+			if (search_number == students[i].student_number) {
+				find_index = i;
+				System.out.printf("찾은 index : %d\n", find_index);
+				System.out.printf("찾은 이름 : %s\n", students[find_index].name);
+				System.out.printf("찾은 휴대번호 : %s\n", students[find_index].mobile_phone);
+				System.out.printf("찾은 주소 : %s\n", students[find_index].address);
+				System.out.printf("찾은 ID : %d\n", students[find_index].id);
+			}
 		}
 
 	}
@@ -64,10 +76,10 @@ public class Ex_01_Student_Info {
 		String address;
 		int id; // 중복이 안 되는 유니크
 
-		Student(String name, String mobile_phone, int student_number, String address, Student[] students, int index) {
+		private Student(String name, String mobile_phone, String address, Student[] students, int index) {
 			this.name = name;
 			this.mobile_phone = mobile_phone;
-			this.student_number = student_number;
+			this.student_number = index + 20254001;
 			this.address = address;
 			this.id = generateUniqueId(students, index);
 		}
