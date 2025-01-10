@@ -9,15 +9,16 @@ public class Make_Lotto_6_45 {
 
 	public static void main(String[] args) { 
 		Scanner scanner = new Scanner(System.in); 
-		while (true) {
+		boolean make_lotto = true;
+		while (make_lotto) {
 			int ticketCount; // 로또 구매 장수
 			
-			System.out.println("====프로그램 시작====");
+			System.out.println("======== 프로그램 시작 ========");
 			System.out.print("구매할 로또 장수를 입력해 주세요: ");
 
 			// 사용자 입력 값이 양의 정수인지 확인
 			while (true) {
-				try {
+				try { 
 					ticketCount = Integer.parseInt(scanner.nextLine());
 					if ((ticketCount > 0) && (ticketCount <= 9000000)) {
 						break;
@@ -52,13 +53,40 @@ public class Make_Lotto_6_45 {
 				System.err.println("파일 쓰기 중 오류가 발생했습니다: " + e.getMessage());
 			}
 
-			System.out.println("번호 생성이 완료되었습니다. ");
+			System.out.printf("번호 생성이 완료되었습니다. \n\n");
 
+			
+			System.out.println("======== 담첨여부 조회 중 ========");
 			Check_Lotto_6_45 lotto_num_check = new Check_Lotto_6_45();
 			lotto_num_check.num_check(); // 로또 당첨내역 조회
-			System.out.printf("\n\n"); 
+			System.out.printf("\n"); 
+			
+			System.out.printf("(재시작 : 'Y', 종료 : 'N') : ");
+			while(true) {
+				String temp = scanner.nextLine();
+				if( temp.equalsIgnoreCase("y")  ) {
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					break;
+				}
+				else if(temp.equalsIgnoreCase("n")) {
+					make_lotto = false;
+					break;
+				}
+				else {
+					System.out.printf("옳바른 입력을 눌러주세요 : ");
+				}
+			}
 		} 
-		 
+		if(!make_lotto) {
+			System.out.println("시스템이 정상적으로 종료되었습니다. ");
+			scanner.close();
+		}
+		else {
+			System.out.println("*** 시스템 에러 발생 ***");
+		}
+		
 	}
 
 	// 로또 번호 생성 함수
