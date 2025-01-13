@@ -10,9 +10,9 @@ public class Ex_03_1_main_Student {
 		System.out.printf("학생수 : ");
 		studentCount = input_number(scan);
         Ex_03_2_student[] students = new Ex_03_2_student[studentCount];
+        //studentCount만큼의 배열을 만들 것
 		
-		for(int i=0; i < studentCount; i++) { 
-			
+		for(int i=0; i < studentCount; i++) {  
             
 			System.out.printf("학생 이름 : "); 
 			String name = scan.nextLine();
@@ -34,7 +34,14 @@ public class Ex_03_1_main_Student {
 			
 			students[i] = new Ex_03_2_student(name, number, age, java_score, web_score, android_score);  
 		}
-		System.out.println();
+		System.out.println(); 
+
+		for(int i = 0; i < studentCount; i++) { 
+			students[i].getName();
+			System.out.printf("의 새로운 이름을 지정 : ");
+			String temp = scan.nextLine();
+			students[i].setName(temp); 
+		} 
 		
 		for(int i = 0; i < studentCount; i++) {
 			students[i].showStudent();
@@ -42,6 +49,7 @@ public class Ex_03_1_main_Student {
 				System.out.println("===============");
 			}
 		}
+		
 		scan.close();
 	}
 	
@@ -55,7 +63,7 @@ public class Ex_03_1_main_Student {
 					System.out.printf("재입력 : ");
 					continue;
 				}
-				else if(result == 1) {
+				else if(result == 0) {
 					System.out.printf("0명은 존재하지 않습니다. : ");
 				}
 				else {

@@ -1,12 +1,12 @@
 package ex_01;
 
 public class Ex_03_2_student {
-	String name;
-	String number;
-	int age; 
-	int java_score;
-	int web_score;
-	int android_score;
+	private String name;
+	private String number;
+	private int age; 
+	private int java_score;
+	private int web_score;
+	private int android_score;
 	
 	public Ex_03_2_student(String name, String number, int age,
 				int java_score, int web_score, int android_score) {
@@ -24,5 +24,13 @@ public class Ex_03_2_student {
 		System.out.println(name + "님의 자바 점수는 : " + java_score + "점 입니다.");
 		System.out.println(name + "님의 웹 점수는 : " + web_score + "점 입니다.");
 		System.out.println(name + "님의 안등로이드 점수는 : " + android_score + "점 입니다.");
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void getName() {
+		System.out.print(name);
 	}
 }
