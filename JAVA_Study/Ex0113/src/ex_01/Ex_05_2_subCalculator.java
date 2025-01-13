@@ -3,8 +3,9 @@ package ex_01;
 public class Ex_05_2_subCalculator {
 	private int num1;
 	private int num2;
+ 
 
-	public Ex_05_2_subCalculator(int num1, int num2) {
+	public Ex_05_2_subCalculator(int num1, int num2) { 
 		this.num1 = num1;
 		this.num2 = num2;
 	}
