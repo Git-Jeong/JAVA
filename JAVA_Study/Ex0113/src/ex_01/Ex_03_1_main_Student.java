@@ -11,27 +11,30 @@ public class Ex_03_1_main_Student {
 		studentCount = input_number(scan);
         Ex_03_2_student[] students = new Ex_03_2_student[studentCount];
 		
-		for(int i=0; i < studentCount; i++) {
-            students[i] = new Ex_03_2_student();  
+		for(int i=0; i < studentCount; i++) { 
+			
             
-			System.out.printf("학생 이름 : ");
-			students[i].name = scan.nextLine();
+			System.out.printf("학생 이름 : "); 
+			String name = scan.nextLine();
 
 			System.out.printf("학번 : ");
-			students[i].number = scan.nextLine();
+			String number = scan.nextLine();
 			
 			System.out.printf("나이 : ");
-			students[i].age = input_number(scan);
+			int age = input_number(scan);
 			
 			System.out.printf("자바 점수 : ");
-			students[i].java_score = input_number(scan); 
+			int java_score = input_number(scan); 
 			
 			System.out.printf("웹 점수 : ");
-			students[i].web_score = input_number(scan); 
+			int web_score = input_number(scan); 
 			
 			System.out.printf("안드로이드 점수  : ");
-			students[i].android_score = input_number(scan); 
+			int android_score = input_number(scan); 
+			
+			students[i] = new Ex_03_2_student(name, number, age, java_score, web_score, android_score);  
 		}
+		System.out.println();
 		
 		for(int i = 0; i < studentCount; i++) {
 			students[i].showStudent();
@@ -43,8 +46,7 @@ public class Ex_03_1_main_Student {
 	}
 	
 	private static int input_number(Scanner scan) {
-		//양의 정수를 입력받아 리턴하는 클래스
-		
+		//양의 정수를 입력받아 리턴하는 클래스 
 		int result = 0;
 		while(true) { 
 			try {
@@ -53,7 +55,11 @@ public class Ex_03_1_main_Student {
 					System.out.printf("재입력 : ");
 					continue;
 				}
+				else if(result == 1) {
+					System.out.printf("0명은 존재하지 않습니다. : ");
+				}
 				else {
+					//음수가 아니면
 					break;
 				}
 			} catch (Exception e) {

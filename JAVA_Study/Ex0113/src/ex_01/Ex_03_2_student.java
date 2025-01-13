@@ -7,6 +7,16 @@ public class Ex_03_2_student {
 	int java_score;
 	int web_score;
 	int android_score;
+	
+	public Ex_03_2_student(String name, String number, int age,
+				int java_score, int web_score, int android_score) {
+		this.name = name;
+		this.number = number;
+		this.age = age; 
+		this.java_score = java_score;
+		this.web_score = web_score;
+		this.android_score = android_score;
+	}
 	 
 	public void showStudent() {
 		System.out.println(name + "님 안녕하세요. ");
