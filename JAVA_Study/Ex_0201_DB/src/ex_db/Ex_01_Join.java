@@ -1,68 +1,72 @@
 package ex_db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Ex_01_Join {
 	public static void main(String[] args) {
-		Connection conn = null;
-		PreparedStatement psant = null;
+		//회원가입을 위한 시스템
+		
 		Scanner scan = new Scanner(System.in);
 
-		System.out.print("id : ");
-		String input_id = inputString(scan);
-		System.out.print("pw : ");
-		String input_pw = inputString(scan);
-		System.out.print("name : ");
-		String input_name = inputString(scan);
-		System.out.print("age : ");
-		int input_age = inputInt(scan);
-		
+		System.out.println("회원가입 서비스 : ");
+		while (true) {
+			System.out.print("id : ");
+			String input_id = inputString(scan);
+			System.out.print("pw : ");
+			String input_pw = inputString(scan);
+			System.out.print("name : ");
+			String input_name = inputString(scan);
+			System.out.print("age : ");
+			int input_age = inputInt(scan);
+
+			//사용자가 입력한 값으로 회원가입을 진행
+			boolean register_check = registerUser(input_id, input_pw, input_name, input_age);
+			
+			if ( register_check ) {
+				System.out.println("회원가입 성공!");
+				break; // 회원가입이 성공하면 루프 종료
+			} else {
+				System.out.println("회원가입 실패... 다시 시도해주세요.");
+			}
+		}
+
+		scan.close();
+	}
+
+	private static boolean registerUser(String id, String pw, String name, int age) {
+		Connection conn = null;
+		PreparedStatement psant = null;
+		boolean success = false;
+
 		try {
-			// 1. JDBC 드라이버 로드
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// 2. 데이터베이스 연결 정보 설정
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			String user = "hr";
 			String password = "hr";
 
 			conn = DriverManager.getConnection(url, user, password);
+			conn.setAutoCommit(false); // 수동 커밋 모드
 
-			if (conn != null) {
-				System.out.println("연결 성공");
-			} else {
-				System.out.println("연결 실패");
-			}
-
-			// 3. 올바른 INSERT 문 (?, ?, ?, ? 사용)
 			String sql_insert = "INSERT INTO BIGDATA_MEMBER (ID, PW, NAME, AGE) VALUES (?, ?, ?, ?)";
-
-			// 4. PreparedStatement 생성 및 값 바인딩
 			psant = conn.prepareStatement(sql_insert);
-			psant.setString(1, input_id); // ID (String)
-			psant.setString(2, input_pw); // PW (String)
-			psant.setString(3, input_name); // NAME (String)
-			psant.setInt(4, input_age); // AGE (Integer)
 
-			// 5. 실행 및 결과 확인
+			psant.setString(1, id);
+			psant.setString(2, pw);
+			psant.setString(3, name);
+			psant.setInt(4, age);
+
 			int result = psant.executeUpdate();
-
 			if (result > 0) {
-				System.out.println("회원가입 성공!");
 				conn.commit();
-			} else {
-				System.out.println("회원가입 실패...");
+				success = true;
 			}
-
+		} catch (SQLIntegrityConstraintViolationException e) {
+			System.out.println("이미 존재하는 ID입니다. 다른 ID를 입력하세요.");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		} finally {
-			// 뮤조건 마지막에 방문하는 구문
-			// 6. 리소스 해제
 			try {
 				if (psant != null)
 					psant.close();
@@ -72,40 +76,30 @@ public class Ex_01_Join {
 				e.printStackTrace();
 			}
 		}
-		
-		scan.close();
-
+		return success;
 	}
-	
+
 	private static int inputInt(Scanner scan) {
-		// 0이상의 정수를 입력받는 함수
-		int result = 0;
-		while(true) {
+		int result;
+		while (true) {
 			try {
 				result = Integer.parseInt(scan.next());
-				if(result > 0) {					
-					break;
-				} else {
-					continue;
+				if (result > 0) {
+					return result;
 				}
 			} catch (Exception e) {
-				System.out.print("0이상의 숫자만 입력 : ");
+				System.out.print("0 이상의 숫자만 입력 : ");
 			}
 		}
-		return result;
 	}
-	
+
 	private static String inputString(Scanner scan) {
-		// 문자열을 입력받는 함수
-		String result = null;
-		while(true) {
+		while (true) {
 			try {
-				result = scan.next();
-				break;
+				return scan.next();
 			} catch (Exception e) {
 				System.out.print("에러... 재입력 : ");
 			}
 		}
-		return result;
 	}
 }
