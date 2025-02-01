@@ -11,4 +11,5 @@ public interface Temp {
 	// 인터페이스에선 abstract를 생략할 수 있다. 모든 메소드는 자동으로 abstract로 선언된다
 	
 	
+	
 }
