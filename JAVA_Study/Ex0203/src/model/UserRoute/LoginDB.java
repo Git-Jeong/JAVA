@@ -32,11 +32,7 @@ public class LoginDB {
         } catch (SQLException e) {
             System.out.println("SQL 실행 오류: " + e.getMessage());
         } finally {
-            try {
-                conn.close(); // 연결 해제
-            } catch (SQLException e) {
-                System.out.println("DB 연결 해제 오류: " + e.getMessage());
-            }
+        	MemberDAO.closeDB(conn);
         }
 
         return result;

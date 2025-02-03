@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MemberDAO {
-    // DB 연결 메서드
-    public static Connection getConnection() {
+	
+    private static Connection getDBConnection() {
         Connection conn = null;
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver"); // JDBC 드라이버 로드
@@ -22,4 +22,24 @@ public class MemberDAO {
         }
         return conn; // 연결 객체 반환
     }
+	
+
+    private static void closeDBConnection(Connection conn) {  
+        try {
+            conn.close(); // 연결 해제
+        } catch (SQLException e) {
+            System.out.println("DB 연결 해제 오류: " + e.getMessage());
+        } 
+    }
+    
+    
+    // DB 연결 메서드
+    public static Connection getConnection() {
+    	return getDBConnection();
+    }
+    
+    public static void closeDB(Connection conn) {  
+    	closeDBConnection(conn); 
+    }
+    
 }

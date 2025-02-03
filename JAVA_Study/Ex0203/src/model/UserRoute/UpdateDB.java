@@ -8,9 +8,10 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import model.MemberDAO;
 import model.MemberDTO;
 
-public class SignupDB {
-	public static boolean signupDB(MemberDTO member) {
-		boolean result = false;
+public class UpdateDB {
+
+	public static boolean updateDB(MemberDTO member) {
+		boolean result = false; 
 		Connection conn = MemberDAO.getConnection(); // DB 연결 가져오기
 
 		if (conn == null) {
@@ -18,14 +19,14 @@ public class SignupDB {
 			return false;
 		}
 
-		String sql = "INSERT INTO BIGDATA_MEMBER (ID, PW, NAME, AGE) VALUES (?, ?, ?, ?)";
+		String sql = "UPDATE BIGDATA_MEMBER SET PW = ?, NAME = ?, AGE = ? WHERE ID = ?";
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			// 5. PreparedStatement에 값 설정
-			pstmt.setString(1, member.getId()); // 사용자 ID VARCHAR(50)
-			pstmt.setString(2, member.getPw()); // 비밀번호 VARCHAR(50)
-			pstmt.setString(3, member.getName()); // 이름 VARCHAR(50)
- 			pstmt.setInt(4, member.getAge()); // 나이 NUMBER
+			pstmt.setString(1, member.getPw()); // 비밀번호 VARCHAR(50)
+			pstmt.setString(2, member.getName()); // 이름 VARCHAR(50)
+ 			pstmt.setInt(3, member.getAge()); // 나이 NUMBER
+ 	        pstmt.setString(4, member.getId()); // MEMBER_ID 설정 (식별자)
 
 			// 6. SQL 실행 및 결과 확인
 			int db_result = pstmt.executeUpdate();
@@ -42,7 +43,9 @@ public class SignupDB {
 			e.printStackTrace();
 		} finally {
         	MemberDAO.closeDB(conn);
-		}
-		return result; // 11. 회원가입 성공 여부 반환
+		} 
+		
+		
+		return result;
 	}
 }

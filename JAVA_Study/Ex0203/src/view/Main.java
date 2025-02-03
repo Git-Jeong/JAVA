@@ -3,6 +3,7 @@ import view.User.Delete;
 import view.User.Input;
 import view.User.Login;
 import view.User.Signup;
+import view.User.Update;
 import view.util.*;
 
 public class Main {
@@ -85,6 +86,7 @@ public class Main {
 			}
 			else if (inputOption.equals(String.valueOf(EDIT_CODE))) {
 			    // 회원정보 수정 코드 실행 
+				Update.updateService();
 			}
 			else {
 				//시스템 종료 코드 
