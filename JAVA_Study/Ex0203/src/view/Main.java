@@ -63,7 +63,7 @@ public class Main {
 		String inputOption = Input.inputStrig();
 		if (inputOption.equals(String.valueOf(DELETE_CODE))) {
 			// 회원탈퇴 코드 실행
-			boolean deleteResult = Delete.deleteService();
+			boolean deleteResult = Delete.deleteService(loginUser);
 			if (deleteResult) {
 				// 삭제 성공
 				loginUser = null;

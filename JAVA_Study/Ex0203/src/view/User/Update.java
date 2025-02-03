@@ -1,8 +1,7 @@
 package view.User;
 
 import model.MemberDTO;
-import model.UserRoute.AuthDB;
-import model.UserRoute.LoginDB;
+import model.UserRoute.AuthDB; 
 import model.UserRoute.UpdateDB;
 
 public class Update {
