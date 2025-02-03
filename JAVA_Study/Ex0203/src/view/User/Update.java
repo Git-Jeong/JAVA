@@ -1,22 +1,21 @@
 package view.User;
 
 import model.MemberDTO;
+import model.UserRoute.AuthDB;
 import model.UserRoute.LoginDB;
 import model.UserRoute.UpdateDB;
 
 public class Update {
-	public static void updateService() {  
+	public static void updateService(MemberDTO member) {  
 		
 		// 사용자 정보 검증
-		System.out.println("--본인확인 절차--");
-		System.out.print("id : ");
-		String input_id = Input.inputStrig();
+		System.out.println("--본인확인 절차--"); 
 		System.out.print("pw : ");
 		String input_pw = Input.inputStrig(); 
-		MemberDTO member = new MemberDTO(input_id, input_pw); 
-		boolean user_check = LoginDB.loginDB(member);
+		member.setPw(input_pw);
+		boolean authCheck = AuthDB.authDB(member);
 		
-		if (user_check) { 
+		if (authCheck) { 
 			System.out.println("--정보 변경--"); 
 			System.out.print("pw : ");
 			String new_pw1 = Input.inputStrig();
