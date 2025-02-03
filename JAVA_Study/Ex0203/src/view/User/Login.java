@@ -1,7 +1,8 @@
 package view.User;
  
 import model.MemberDTO;
-import model.UserRoute.LoginDB; 
+import model.UserRoute.LoginDB;
+import view.util.Input; 
 
 public class Login {
 	public static MemberDTO loginService(){  

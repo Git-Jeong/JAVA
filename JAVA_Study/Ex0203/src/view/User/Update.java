@@ -3,6 +3,7 @@ package view.User;
 import model.MemberDTO;
 import model.UserRoute.AuthDB; 
 import model.UserRoute.UpdateDB;
+import view.util.Input;
 
 public class Update {
 	public static void updateService(MemberDTO member) {  

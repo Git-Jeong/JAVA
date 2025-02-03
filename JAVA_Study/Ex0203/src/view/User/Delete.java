@@ -3,6 +3,7 @@ package view.User;
 import model.MemberDTO;
 import model.UserRoute.AuthDB;
 import model.UserRoute.DeleteDB;
+import view.util.Input;
 
 public class Delete {
 	public static boolean deleteService(MemberDTO member ) {
@@ -12,7 +13,11 @@ public class Delete {
 		member.setPw(input_pw);
 		boolean authUser = AuthDB.authDB(member);
 		if(authUser) {			
-			result = DeleteDB.deleteDB(member);
+			System.out.print("계정을 지우시겠습니까? Yes : 'Y', No : AnyKey >>> ");
+			String temp = Input.inputStrig();
+			if(temp.equalsIgnoreCase("Y")) {				
+				result = DeleteDB.deleteDB(member);
+			} 
 		}
 		else { 
 			System.out.println("본인 확인에 실패했습니다."); 

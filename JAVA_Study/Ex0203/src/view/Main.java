@@ -2,7 +2,6 @@ package view;
 
 import model.MemberDTO;
 import view.User.Delete;
-import view.User.Input;
 import view.User.Login;
 import view.User.Signup;
 import view.User.Update;
@@ -33,7 +32,7 @@ public class Main {
 				// 로그인이 되지 않았다면
 				int serviceOption = nonLoginService();
 				if (serviceOption == LOGIN_SUCCESS_RETURN_CODE) {
-					isLogin = true; 
+					isLogin = true;
 				} else if (serviceOption == EXIT_RETURN_CODE) {
 					break;
 				}
@@ -42,10 +41,10 @@ public class Main {
 				System.out.println();
 				int serviceOption = loginService();
 				if (serviceOption == LOGOUT_RETURN_CODE) {
-					isLogin = true;
-					break;
+					isLogin = false;
 				}
 			}
+			System.out.println();
 		}
 
 		System.out.println("시스템이 종료되었습니다.");
@@ -57,8 +56,8 @@ public class Main {
 		final int EDIT_CODE = 2;
 		final int LOGOUT_CODE = 3;
 		final int DELETE_CODE = 4;
-		System.out.printf("[%d]정보조회, [%d]정보수정, [%d]로그아웃, [%d]탈퇴\n", 
-				SEARCH_USER_CODE, EDIT_CODE, LOGOUT_CODE, DELETE_CODE);
+		System.out.printf("[%d]정보조회, [%d]정보수정, [%d]로그아웃, [%d]탈퇴\n", SEARCH_USER_CODE, EDIT_CODE, LOGOUT_CODE,
+				DELETE_CODE);
 		System.out.print("숫자를 입력 : ");
 		String inputOption = Input.inputStrig();
 		if (inputOption.equals(String.valueOf(DELETE_CODE))) {
@@ -71,7 +70,7 @@ public class Main {
 			}
 		} else if (inputOption.equals(String.valueOf(SEARCH_USER_CODE))) {
 			// 모든 회원 정보 조회 코드 실행
-			UserInfo.userInfo(loginUser); 
+			UserInfo.userInfo(loginUser);
 		} else if (inputOption.equals(String.valueOf(EDIT_CODE))) {
 			// 회원정보 수정 코드 실행
 			Update.updateService(loginUser);

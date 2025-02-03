@@ -2,6 +2,7 @@ package view.User;
 
 import model.MemberDTO;
 import model.UserRoute.SignupDB;
+import view.util.Input;
 
 public class Signup {
 	public static void signupService() { 

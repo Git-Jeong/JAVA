@@ -25,8 +25,7 @@ public class DeleteDB {
             pstmt.setString(2, member.getPw()); //VARCHAR 50으로 만들어둠
             
             try (ResultSet rs = pstmt.executeQuery()) {
-    			if (rs.next()) {
-    				System.out.println("삭제 성공!");
+    			if (rs.next()) { 
     				result = true;
     			}
             } 
