@@ -16,7 +16,7 @@ public class GetAllUserDB {
 
         if (conn == null) {
             System.out.println("DB 연결 실패!");
-            return null;
+            return userList;
         }
 
 		String sql = "SELECT ID, NAME, AGE, POINT FROM BIGDATA_MEMBER";
