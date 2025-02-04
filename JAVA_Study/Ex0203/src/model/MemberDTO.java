@@ -30,6 +30,14 @@ public class MemberDTO {
 		this.age = age;
 	}  
 	
+	public MemberDTO(String id, String name, int age, int point) {
+		super();
+		this.id = id; 
+		this.name = name;
+		this.age = age;
+		this.point = point;
+	}  
+	
 	public MemberDTO(String id, String pw, String name, int age, int point) {
 		super();
 		this.id = id;
@@ -38,7 +46,8 @@ public class MemberDTO {
 		this.age = age;
 		this.point = point;
 	} 
-
+ 
+	
 	// 3. 모든 필드의 getter, setter
 
 	public String getId() {
