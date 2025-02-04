@@ -11,7 +11,7 @@ import model.MemberDTO;
 
 public class GetAllUserDB { 
     public static ArrayList<MemberDTO> getAllUserDB() {
-    	ArrayList<MemberDTO> userList = new ArrayList<MemberDTO>(); 
+    	ArrayList<MemberDTO> userList = null; 
         Connection conn = MemberDAO.getConnection(); // DB 연결 가져오기
 
         if (conn == null) {
